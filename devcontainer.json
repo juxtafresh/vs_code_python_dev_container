@@ -1,0 +1,60 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/ubuntu
+{
+	"name": "Ubuntu",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick an Ubuntu version: hirsute, focal, bionic
+		// Use hirsute or bionic on local arm64/Apple Silicon.
+		"args": { "VARIANT": "focal" }
+	},
+
+	// these mounts need to be dynamic for anyones system
+	"mounts": [
+		"source=/Users/kcarrington/Box,target=/workspaces/python_lab_v1/box,type=bind,consistency=cached"
+	  ],
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"workbench.colorTheme": "Atom One Dark",
+		"sqltools.highlightQuery": false,
+		"workbench.startupEditor": "none",
+	},
+
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-toolsai.jupyter",
+		"ms-toolsai.jupyter-keymap",
+		"ms-toolsai.jupyter-renderers",
+		"ms-python.vscode-pylance",
+		"ms-python.python",
+		"coenraads.bracket-pair-colorizer-2",
+		"akamud.vscode-theme-onedark",
+		"tabnine.tabnine-vscode",
+		"tomoki1207.pdf",
+		"koszti.snowflake-driver-for-sqltools",
+		"grapecity.gc-excelviewer",
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "pip install -r /root/requirements.txt",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "vscode",
+	"features": {"python": "3.8"}
+
+	
+}
+
+
+// "terminal.integrated.profiles.linux": {
+// 	"zsh (login)": {
+// 	"path": "$ZSH/oh-my-zsh.sh",
+// 	"args": ["-l"]
+// 	}
+// },
+// "terminal.integrated.defaultProfile.linux": "zsh",
