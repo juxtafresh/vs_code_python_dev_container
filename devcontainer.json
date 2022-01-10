@@ -11,14 +11,26 @@
 
 	// these mounts need to be dynamic for anyones system
 	"mounts": [
-		"source=/Users/kcarrington/Box,target=/workspaces/python_lab_v1/box,type=bind,consistency=cached"
+		"source=${localEnv:HOME}${localEnv:USERPROFILE},target=${containerWorkspaceFolder}/local_machine,type=bind,consistency=cached"
 	  ],
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"workbench.colorTheme": "Atom One Dark",
+		"workbench.colorCustomizations": {
+			"titleBar.activeBackground": "#0f4b037a"
+		},
 		"sqltools.highlightQuery": false,
 		"workbench.startupEditor": "none",
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveMode": "file",
+		"editor.codeActionsOnSave": {
+			"source.organizeImports":true
+		},
+		"python.linting.pulintEnabled": true,
+		"python.linting.enabled": true,
+		"python.formatting.provider": "black",
+		"vim.smartRelativeLine": true,
 	},
 
 
@@ -34,7 +46,9 @@
 		"tabnine.tabnine-vscode",
 		"tomoki1207.pdf",
 		"koszti.snowflake-driver-for-sqltools",
-		"grapecity.gc-excelviewer",
+		"vscodevim.vim",
+		"gitlab.gitlab-workflow",
+		"bierner.markdown-mermaid",
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -47,7 +61,6 @@
 	// "remoteUser": "vscode",
 	"features": {"python": "3.8"}
 
-	
 }
 
 
